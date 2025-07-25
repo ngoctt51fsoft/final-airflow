@@ -24,3 +24,5 @@ Một vài bảng sau khi chạy
 ![Postgres Connection](assets/staging_events.png)
 
 ![Postgres Connection](assets/staging_songs.png)
+
+Đối với Data quality check, vì primary key đã chỉ định not null và yêu cầu đề bài không cho biết ta có yêu cần check null các trường khác không nên Data quality check chỉ check xem bảng có trống không
