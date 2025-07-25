@@ -10,6 +10,7 @@ Các bước thực hiện:
 ![Postgres Connection](assets/postgres_connection.png)
 
 - Dùng pgadmin tạo bảng:
+
 ![Postgres Connection](assets/tables.png)
 
 - Graph sau khi chạy
