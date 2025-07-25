@@ -34,7 +34,7 @@ with DAG(
     )
 
     load_events_task = PythonOperator(
-        task_id='load_events_to_staging',
+        task_id='load_event_files_to_staging',
         python_callable=DataTool.load_events_files_into_staging,
         op_args=['my_postgres', 'data/log_data', 'staging_events']
     )
@@ -75,5 +75,5 @@ with DAG(
 
     end = DummyOperator(task_id = "end")
 
-    start >> load_songs_task >> load_events_task >> load_song_plays_fact_task >> [load_song_dim_table, load_user_dim_table, load_artist_dim_table, load_time_dim_table]
+    start >> [load_songs_task, load_events_task] >> load_song_plays_fact_task >> [load_song_dim_table, load_user_dim_table, load_artist_dim_table, load_time_dim_table]
     [load_song_dim_table, load_user_dim_table, load_artist_dim_table, load_time_dim_table] >> run_quality_checks_task >> end
